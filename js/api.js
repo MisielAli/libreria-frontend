@@ -2,13 +2,14 @@
  * Created by USUARIO on 30/11/2016.
  */
 $(document).ready(function () {
-
+    var $busqueda = document.getElementById('busquedatxt').value;
     var $datos = $('.libros');
     var $titulo = $('#tituloLibro');
     var $autor = $('#autorLibro');
     var $url = $('#urlLibro');
     var $img = $('#urlImg');
     var $ultimoid
+    var $pag = $('.pagination');
 
 
     // nos permite interactuar con el servidor sin refrescar la pagina.
@@ -19,7 +20,7 @@ $(document).ready(function () {
         contentType: 'application/json', // es el tipo de contenido que se le mandara al servidor.
         success: function (data) {  // funcion que se ejecuta si la peticion es exitosa
 
-            $.each(data, function (i, item) {
+            $.each(data.rows, function (i, item) {
 
 
                 //se  crea el HTML con los datos resividos
@@ -31,8 +32,20 @@ $(document).ready(function () {
 
             });
 
+            $tot =   Math.ceil(data.total/2);
 
-        }
+
+            var $offset = 0;
+            $pag.append('<li class="active" search="'+$busqueda+'"  offset="'+$offset+'"><a href="#">1</a></li>');
+            var $i;
+            for($i=1;$i<$tot;$i++){
+             $offset = $offset+ 2;
+            $pag.append('<li class search="'+$busqueda+'"  offset="'+$offset+'"   ><a href="#">'+($i+1)+'</a></li>');
+            }
+
+
+
+         }
     });
 
 
@@ -50,7 +63,8 @@ $(document).ready(function () {
                 contentType: 'application/json', // es el tipo de contenido que se le mandara al servidor.
                 success: function (data) {  // funcion que se ejecuta si la peticion es exitosa
                      $('.square').remove();
-                    $.each(data, function (i, item) {
+                     console.log(url);
+                    $.each(data.rows, function (i, item) {
 
 
                         //se  crea el HTML con los datos resividos
@@ -93,7 +107,7 @@ $(document).ready(function () {
                     $datos.append('<div class="square z-depth-2"  id="' + $ultimoid + '" tituloLibro="' + $titulo_libro + '" autorLibro="' + $autor + '" urlLibro="' + $amazon_url + '" imgLibro="' + $url_img + '" ><div class="content"> <div class="table table-responsive"> <div class="table-cell"><img class="rs  imgSquare img-responsive" src="' + $url_img + '"/><ul class="libro">  <li id="idlibro" >ID:' + $ultimoid + '</li> <li class="tituloSquare">Titulo: ' + $titulo_libro + '</li><li class="autorSquare">Autor: ' + $autor + '</li><li class="urlSquare">Enlace: <a href="' + $amazon_url + '">Comprar</a></li></ul></div></div></div><button type="button" class="btn btn-danger btn-sm" id="borrarLibro">Borrar</button><button type="button" class="btn btn-default btn-sm" id="actLibro">Actualizar</button></div>');
 
 
-                    console.log(data);
+                    console.log(data.rows);
 
 
                 },
@@ -193,6 +207,43 @@ $(document).on("click", "#borrarLibro", function () {
                 }
             });
     }
+
+
+});
+
+
+
+$(document).on("click", ".pagination li", function () {
+    var $datos = $('.libros');
+    $offset = $(this).attr('offset');
+   $search = $(this).attr('search');
+
+
+    $.ajax(
+        {
+            type: 'GET',
+            url: "http://localhost/api/libros?search="+$search+"&offset="+$offset, // Cadena de texto conteniendo la direccion a donde se mandara el resultado.
+            dataType: "json",                // es el tipo de datos que se espera obtener del servidor.
+            contentType: 'application/json', // es el tipo de contenido que se le mandara al servidor.
+            success: function (data) {  // funcion que se ejecuta si la peticion es exitosa
+                $('.square').remove();
+                $.each(data.rows, function (i, item) {
+
+                  $('.pagination .active').removeClass('active');
+                  $(this).addClass('active');
+                    //se  crea el HTML con los datos resividos
+
+                    $datos.append('<div class="square z-depth-2" id="' + item.id + '" tituloLibro="' + item.titulo_libro + '" autorLibro="' + item.autor + '" urlLibro="' + item.amazon_url + '" imgLibro="' + item.url_img + '"><div class="content">  <img class="rs imgSquare img-thumbnail" src="' + item.url_img + '"/><ul class="libro"> <li class="idlibro" >ID:' + item.id + '</li><li class="tituloSquare">Titulo: ' + item.titulo_libro + '</li><li class="autorSquare">Autor: ' + item.autor + '</li><li class="urlSquare">Enlace: <a href="' + item.amazon_url + '">Comprar</a></li><li></li></ul></div><button type="button" class="btn btn-danger btn-sm" id="borrarLibro">Borrar</button><button type="button" class="btn btn-default btn-sm" id="actLibro">Actualizar</button></div>');
+
+                    //el dato del ultimo id para usarlo al insertar.
+                    $ultimoid = item.id;
+
+
+                });
+
+
+            }}
+    );
 
 
 });
