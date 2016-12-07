@@ -9,12 +9,21 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css">
+
+
+
+
 
     <link href="css/mdb.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-    <script src="js/api.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script> -->
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
 
 
 </head>
@@ -28,12 +37,12 @@
 <nav class="navbar  navbar-dark green  z-depth-2">
 
 
-
     <div class="container">
 
         <!--Navbar Brand-->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" id="menu" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -42,15 +51,15 @@
             <a class="navbar-brand" href="/mdb/">Librero</a>
         </div>
         <!--Links-->
-       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <!--Search form-->
-        <form class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Busqueda" id="busquedatxt">
-            </div>
-            <button type="button" class="btn btn-success btn-small" id="busqueda">Buscar</button>
-        </form>
-       </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--Search form-->
+            <form class="navbar-form navbar-right" id="barrabusqueda">
+                <div class="form-group ">
+                    <input type="text" class="form-control" placeholder="Busqueda" id="busquedatxt">
+                </div>
+                <button type="button" class="btn btn-success btn-small" id="busqueda">Buscar</button>
+            </form>
+        </div>
     </div>
 
 </nav>
@@ -71,23 +80,15 @@
 </div>
 <div class="container">
 
+    <div class="row">
+        <div class="col-md-offset-1 col-md-11">
+            <div class="libros"></div>
 
-<div class="row">
-   <div class="col-md-offset-1 col-md-11">
-       <div class="libros"></div>
+        </div>
 
-
-
-   </div>
-
+    </div>
 
 </div>
-
-
-
-</div>
-
-
 
 
 <!-- /.container -->
@@ -95,15 +96,36 @@
 <!-- prueba tabs -->
 
 
+
+<div class="container z-depth-2 col-md-offset-4 col-md-4" id="sesion">
+
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Inicia sesion</h2>
+        <label for="inputEmail" class="sr-only">Correo</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="ejemplo@correo.com" required autofocus>
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        <button class="btn btn-lg btn-primary btn-block" id="login" type="button">Iniciar</button>
+    </form>
+
+</div> <!-- /container -->
+
+
+
+
 <!-- nav nav-tabs class makes the tabs -->
 <div class="row formulario">
+
+
+
     <div class="col-md-offset-3 col-md-6">
         <div class="panel with-nav-tabs panel-default z-depth-2 ">
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
-                    <li id="tab1" ><a href="#tab1default" data-toggle="tab">Insertar</a></li>
+                    <li id="tab1"><a href="#tab1default" data-toggle="tab">Insertar</a></li>
                     <li id="tab2" class="active"><a href="#tab2default" data-toggle="tab">Actualizar</a></li>
-                   <!-- <li id="tab3"><a href="#tab3default" data-toggle="tab">Borrar</a></li> -->
+                    <!-- <li id="tab3"><a href="#tab3default" data-toggle="tab">Borrar</a></li> -->
 
                 </ul>
             </div>
@@ -158,24 +180,31 @@
                         </form>
 
                     </div>
-                   <!-- <div class="tab-pane fade" id="tab3default">
-                        <form>
-                        <div class="form-group">
-                            <label for="tituloLibro">ID</label>
-                            <input type="text" class="form-control" id="idLibro" placeholder="Libro">
-                        </div>
-                        <button type="button" class="btn btn-default" id="borrarlibro">Enviar</button>
-                        </form>
-                    </div>-->
+                    <!-- <div class="tab-pane fade" id="tab3default">
+                         <form>
+                         <div class="form-group">
+                             <label for="tituloLibro">ID</label>
+                             <input type="text" class="form-control" id="idLibro" placeholder="Libro">
+                         </div>
+                         <button type="button" class="btn btn-default" id="borrarlibro">Enviar</button>
+                         </form>
+                     </div>-->
 
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/api.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')</script>
 <script src="js/bootstrap.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
+
+<!-- Latest compiled and minified Locales -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+
 
 </body>
 

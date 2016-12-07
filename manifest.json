@@ -1,0 +1,12 @@
+{
+  "name": "Libros",
+  "start_url": "index.html",
+  "xwalk_app_version": "0.1",
+  "xwalk_package_id": "com.ali.libros",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "72x72"
+    }
+  ]
+}
