@@ -95,13 +95,13 @@ $(document).ready(function () {
                 $('#barrabusqueda').show();
                 $('#menu').show();
 
-                $tot = Math.ceil(data.total / 3);
+                $tot = Math.ceil(data.total / 6);
 
                 var $offset = 0;
                 $pag.append('<li class="active" search="' + $busqueda + '"  offset="' + $offset + '"><a href="#">1</a></li>');
                 var $i;
                 for ($i = 1; $i < $tot; $i++) {
-                    $offset = $offset + 3;
+                    $offset = $offset + 6;
                     $pag.append('<li class search="' + $busqueda + '"  offset="' + $offset + '"   ><a href="#">' + ($i + 1) + '</a></li>');
                 }
 
