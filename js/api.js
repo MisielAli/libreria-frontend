@@ -1,6 +1,11 @@
 /**
  * Created by USUARIO on 30/11/2016.
  */
+
+
+
+
+
 $(document).ready(function () {
 
     $.ajaxSetup({
@@ -17,7 +22,7 @@ $(document).ready(function () {
     var $url = $('#urlLibro');
     var $img = $('#urlImg');
     var $sesion = $('#sesion');
-    var $ultimoid
+    var $ultimoid;
     var $pag = $('.pagination');
 
     $('.formulario').hide();
@@ -27,6 +32,7 @@ $(document).ready(function () {
     if(JSON.parse(sessionStorage.getItem('sesion')) !== null)
         mostrar();
     console.log(sessionStorage.getItem('sesion'))
+
 
     $('#login').on('click', function () {
 

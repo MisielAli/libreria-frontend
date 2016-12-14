@@ -49,7 +49,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/mdb/">Librero</a>
+            <a class="navbar-brand" href="#">Librero</a>
         </div>
         <!--Links-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -59,6 +59,7 @@
                     <input type="text" class="form-control" placeholder="Busqueda" id="busquedatxt">
                 </div>
                 <button type="button" class="btn btn-success btn-small" id="busqueda">Buscar</button>
+                <button type="button" class="btn btn-success btn-small" id="cerrar">Cerrar</button>
             </form>
         </div>
     </div>
@@ -207,76 +208,18 @@
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/google.js"></script>
 <script src="js/api.js"></script>
+
 <script>window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')</script>
-<script src="js/bootstrap.js"></script>
-<!-- Latest compiled and minified JavaScript -->
+<!--<script src="js/bootstrap.js"></script>
+ Latest compiled and minified JavaScript -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
 
 <!-- Latest compiled and minified Locales -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<script>
 
-    function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-//        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-//        console.log('Full Name: ' + profile.getName());
-//        console.log('Given Name: ' + profile.getGivenName());
-//        console.log('Family Name: ' + profile.getFamilyName());
-//        console.log("Image URL: " + profile.getImageUrl());
-//        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        var correo = profile.getEmail();
-        var nombre = profile.getName();
-        console.log("ID Token: " + id_token);
-
-//        var xhr = new XMLHttpRequest();
-//        xhr.open('POST', 'https://localhost:80/xd');
-//        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//        xhr.onload = function() {
-//            console.log('Signed in as: ' + xhr.responseText);
-//        };
-//        xhr.send('idtoken=' + id_token);
-
-
-        $.ajax(
-            {
-                type: 'POST',
-                url: "http://localhost/login", // Cadena de texto conteniendo la direccion a donde se mandara el resultado.
-                dataType: "json",                // es el tipo de datos que se espera obtener del servidor.
-                contentType: 'application/json',
-                // es el tipo de contenido que se le mandara al servidor.
-                success: function (data) {  // funcion que se ejecuta si la peticion es exitosa
-
-                    sessionStorage.setItem('sesion', JSON.stringify(data))
-
-                    mostrar();
-
-
-                },error: function() {
-                $('.alert').remove();
-                $('#sesion form').append('<div class="alert alert-danger" role="alert">Error en los datos</div>');
-            }
-
-
-                ,
-                data: JSON.stringify({ //se convierten los datos a JSON
-                    correo: correo,
-                    idtoken: id_token
-
-                })
-            }
-        )
-
-
-
-    }
-
-</script>
 </body>
 
 
