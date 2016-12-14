@@ -17,7 +17,6 @@ $(document).ready(function () {
     var $url = $('#urlLibro');
     var $img = $('#urlImg');
     var $sesion = $('#sesion');
-
     var $ultimoid
     var $pag = $('.pagination');
 

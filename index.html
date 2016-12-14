@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="216891072974-oklh71pp1olj7pk36hiinp6r15epf0qu.apps.googleusercontent.com">
     <title>Librero</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Material Design Icons -->
@@ -41,7 +42,7 @@
 
         <!--Navbar Brand-->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" id="menu" data-toggle="collapse"
+            <button type="button" class="navbar-toggle collapsed"  data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -105,8 +106,18 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="ejemplo@correo.com" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
         <button class="btn btn-lg btn-primary btn-block" id="login" type="button">Iniciar</button>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <a href="#" onclick="signOut();">Sign out</a>
+        <script>
+            function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+            }
+        </script>
+
     </form>
 
 </div> <!-- /container -->
@@ -204,8 +215,68 @@
 
 <!-- Latest compiled and minified Locales -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+//        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+//        console.log('Full Name: ' + profile.getName());
+//        console.log('Given Name: ' + profile.getGivenName());
+//        console.log('Family Name: ' + profile.getFamilyName());
+//        console.log("Image URL: " + profile.getImageUrl());
+//        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        var correo = profile.getEmail();
+        var nombre = profile.getName();
+        console.log("ID Token: " + id_token);
+
+//        var xhr = new XMLHttpRequest();
+//        xhr.open('POST', 'https://localhost:80/xd');
+//        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//        xhr.onload = function() {
+//            console.log('Signed in as: ' + xhr.responseText);
+//        };
+//        xhr.send('idtoken=' + id_token);
 
 
+        $.ajax(
+            {
+                type: 'POST',
+                url: "http://localhost/login", // Cadena de texto conteniendo la direccion a donde se mandara el resultado.
+                dataType: "json",                // es el tipo de datos que se espera obtener del servidor.
+                contentType: 'application/json',
+                // es el tipo de contenido que se le mandara al servidor.
+                success: function (data) {  // funcion que se ejecuta si la peticion es exitosa
+
+                    sessionStorage.setItem('sesion', JSON.stringify(data))
+
+                    mostrar();
+
+
+                },error: function() {
+                $('.alert').remove();
+                $('#sesion form').append('<div class="alert alert-danger" role="alert">Error en los datos</div>');
+            }
+
+
+                ,
+                data: JSON.stringify({ //se convierten los datos a JSON
+                    correo: correo,
+                    idtoken: id_token
+
+                })
+            }
+        )
+
+
+
+    }
+
+</script>
 </body>
 
 
