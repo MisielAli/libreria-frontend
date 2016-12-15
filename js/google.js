@@ -1,11 +1,7 @@
 /**
  * Created by Practicas on 14/12/2016.
  */
-$.ajaxSetup({
-    beforeSend: function (jqXHR, settings) {
-        sessionStorage.getItem('sesion') ? jqXHR.setRequestHeader('X-Token',JSON.parse(sessionStorage.getItem('sesion')).token) : null;
-    }
-});
+
 
 $('.formulario').hide();
 $('#barrabusqueda').hide();
