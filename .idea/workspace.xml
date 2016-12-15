@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0fcfb6a-03ae-4ff2-98d4-ee3b24e5bd0b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/google.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/api.js" afterPath="$PROJECT_DIR$/js/api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/google.js" afterPath="$PROJECT_DIR$/js/google.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +32,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="226" column="7" lean-forward="true" selection-start-line="226" selection-start-column="7" selection-end-line="226" selection-end-column="7" />
+            <state relative-caret-position="1353">
+              <caret line="109" column="89" lean-forward="false" selection-start-line="109" selection-start-column="89" selection-end-line="109" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -44,8 +42,8 @@
       <file leaf-file-name="google.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/google.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="1003">
+              <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
               </folding>
@@ -100,8 +98,8 @@
         <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/api.js" />
-        <option value="$PROJECT_DIR$/js/google.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/google.js" />
       </list>
     </option>
   </component>
@@ -258,7 +256,7 @@
       <workItem from="1481068702529" duration="1298000" />
       <workItem from="1481146331309" duration="1217000" />
       <workItem from="1481210705680" duration="2466000" />
-      <workItem from="1481736895233" duration="10659000" />
+      <workItem from="1481736895233" duration="12013000" />
     </task>
     <task id="LOCAL-00001" summary="paginacion&#10;">
       <created>1480723849302</created>
@@ -281,11 +279,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481741442508</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="agregado inicio de sesion con google">
+      <created>1481757873621</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1481757873621</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68511000" />
+    <option name="totallyTimeSpent" value="69865000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1032" height="732" extended-state="0" />
@@ -319,7 +324,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="paginacion&#10;" />
     <MESSAGE value="agregado inicio de secion con google" />
-    <option name="LAST_COMMIT_MESSAGE" value="agregado inicio de secion con google" />
+    <MESSAGE value="agregado inicio de sesion con google" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregado inicio de sesion con google" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -673,16 +679,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="226" column="7" lean-forward="true" selection-start-line="226" selection-start-column="7" selection-end-line="226" selection-end-column="7" />
+        <state relative-caret-position="1353">
+          <caret line="109" column="89" lean-forward="false" selection-start-line="109" selection-start-column="89" selection-end-line="109" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/google.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="1003">
+          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
           </folding>

@@ -101,9 +101,9 @@ function onSignIn(googleUser) {
 
                 ,
                 data: JSON.stringify({ //se convierten los datos a JSON
-                    correo: correo,
-                    idtoken: id_token,
-                    nombre: nombre
+
+                    idtoken: id_token
+
 
                 })
             }
