@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="google-signin-client_id" content="216891072974-oklh71pp1olj7pk36hiinp6r15epf0qu.apps.googleusercontent.com">
+
+
     <title>Librero</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Material Design Icons -->
@@ -14,17 +17,11 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css">
 
 
-
-
-
     <link href="css/mdb.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script> -->
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-
-
 
 
 </head>
@@ -102,13 +99,7 @@
 <div class="container z-depth-2 col-md-offset-4 col-md-4" id="sesion">
 
     <form class="form-signin">
-        <h2 class="form-signin-heading">Inicia sesion</h2>
-        <label for="inputEmail" class="sr-only">Correo</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="ejemplo@correo.com" required autofocus>
-        <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" id="login" type="button">Iniciar</button>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <a href="#" onclick="signOut();">Sign out</a>
         <script>
             function signOut() {
